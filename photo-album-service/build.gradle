@@ -1,0 +1,12 @@
+
+archivesBaseName = 'photo-album-service'
+version = '1.0.0-SNAPSHOT'
+
+jar.enabled = true
+bootJar.enabled = false
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter')
+    
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}

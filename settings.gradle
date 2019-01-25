@@ -1,0 +1,2 @@
+rootProject.name = 'wan-jl'
+include 'photo-album-api','photo-album-service'

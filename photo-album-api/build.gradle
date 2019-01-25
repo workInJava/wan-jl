@@ -1,0 +1,17 @@
+archivesBaseName = 'photo-album-server'
+version = '1.0.0-SNAPSHOT'
+
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.boot:spring-boot-starter-parent:2.1.2.RELEASE'
+    }
+}
+
+dependencies {
+    compile project(':photo-album-service')
+    // spring boot
+    compile "org.springframework.boot:spring-boot-starter-web"
+    //providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
