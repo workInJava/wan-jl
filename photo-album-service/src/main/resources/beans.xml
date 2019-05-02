@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans   xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <!--<bean id="iocTest" class="com.wan.jl.Hello" scope="prototype" >-->
+        <!--<property name="test" value="we"></property>-->
+    <!--</bean>-->
+
+
+    <!--<bean id="iocTest1" class="com.wan.jl.Hello" >-->
+        <!--<property name="test" value="we1"></property>-->
+    <!--</bean>-->
+
+    <!--<bean id="helloWorld" class="com.wan.jl.spring.HelloWorld" init-method="init" scope="singleton" destroy-method="destroy">-->
+       <!--<constructor-arg value="有参"></constructor-arg>-->
+    <!--</bean>-->
+
+    <!--<bean id="helloWorld1" class="com.wan.jl.spring.HelloWorld" init-method="init" scope="singleton" destroy-method="destroy">-->
+        <!--<constructor-arg value="有参1"></constructor-arg>-->
+    <!--</bean>-->
+
+    <!--<bean class="com.wan.jl.spring.InitHelloWorld"/>-->
+
+    <!--<bean class="com.wan.jl.spring.BeanPostPrcessorImpl"/>-->
+
+    <bean id="car" class="com.wan.jl.spring.Car" scope="singleton">
+        <property name="taxi" ref="taxi"></property>
+        <lookup-method bean="taxi" name="getInstance"></lookup-method>
+    </bean>
+
+    <bean id="taxi" class="com.wan.jl.spring.Taxi" scope="prototype"></bean>
+</beans>

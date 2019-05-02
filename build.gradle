@@ -1,8 +1,8 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.2.RELEASE'
-    }
+        springBootVersion = '2.0.4.RELEASE'
 
+    }
     repositories {
         mavenLocal()
         maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
@@ -24,6 +24,7 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
 
     group = 'com.wan.jl'
+    version = '1.0-SNAPSHOT'
 
     // JVM 版本号要求
     sourceCompatibility = 1.8
@@ -32,25 +33,33 @@ subprojects {
     // java编译的时候缺省状态下会因为中文字符而失败
     [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 
+    configurations {
+        providedRuntime
+    }
+
+    ext {
+        springCloudVersion = 'Finchley.SR1'
+    }
+
     repositories {
         mavenLocal()
-        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         mavenCentral()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
 
-
-        jar {
-            manifest.attributes provider: 'gradle'
-        }
-
+//        jar {
+//            manifest.attributes provider: 'gradle'
+//        }
     }
+
+
     // 显示当前项目下所有用于 compile 的 jar.
 //    task listJars(description: 'Display all compile jars.') << {
 //        configurations.compile.each { File file -> println file.name }
 //    }
 
-//    gradle.projectsEvaluated {
-//        tasks.withType(JavaCompile) {
-//            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-//        }
-//    }
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
 }
