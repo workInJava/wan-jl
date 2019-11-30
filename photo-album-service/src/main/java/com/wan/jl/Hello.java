@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.util.StringUtils;
 
-@Data
+//@Data
 //@EqualsAndHashCode
 public class Hello extends AbstractTestInface {
 

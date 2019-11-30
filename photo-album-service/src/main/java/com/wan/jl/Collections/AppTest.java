@@ -1,10 +1,5 @@
 package com.wan.jl.Collections;
 
-<<<<<<< Updated upstream
-import javafx.beans.binding.ObjectExpression;
-
-=======
->>>>>>> Stashed changes
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,8 +9,7 @@ public class AppTest {
     private Object o = new Object();
 
     public static void main(String agrs[]){
-<<<<<<< Updated upstream
-        HashMap<String,String> map = new HashMap();
+        HashMap<String,String> map = new HashMap<>();
         for(int i=0;i<13;i++){
             if(i==11){
                 System.out.println("");
@@ -26,7 +20,6 @@ public class AppTest {
             map.put(""+i,"");
         }
 
-=======
 //        HashMap<String,String> map = new HashMap();
 //        for(int i=0;i<13;i++){
 //            if(i==11){
@@ -39,9 +32,6 @@ public class AppTest {
 //        }
 
         System.out.println(16 - (16 >>> 2));
-        Map<String,Object> map = new HashMap();
-        map.put(null,null);
->>>>>>> Stashed changes
 
     }
 
