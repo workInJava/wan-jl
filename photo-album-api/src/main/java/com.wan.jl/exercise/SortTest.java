@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class SortTest {
 
     public static void main(String args[]) {
-        List<User> userlist=new ArrayList();
+        List<User> userlist=new ArrayList<User>();
         userlist.add(new User("dd",4));
         userlist.add(new User("aa",1));
         userlist.add(new User("ee",5));

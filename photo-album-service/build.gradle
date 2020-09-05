@@ -7,9 +7,8 @@ bootJar.enabled = false
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+    //compile 'org.projectlombok:lombok:1.18.10'
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.10'
-    testCompileOnly 'org.projectlombok:lombok:1.18.10'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile'org.springframework.boot:spring-boot-starter-test'
 }

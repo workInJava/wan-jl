@@ -36,8 +36,7 @@ public class ConnectionPool implements IConnectionPool {
         try {  
             Class.forName(dbBean.getDriverName());  
             for (int i = 0; i < dbBean.getInitConnections(); i++) {  
-                Connection conn;  
-                conn = newConnection();  
+                Connection conn = newConnection();
                 // 初始化最小连接数  
                 if (conn != null) {  
                     freeConnection.add(conn);  
@@ -68,7 +67,7 @@ public class ConnectionPool implements IConnectionPool {
         try {  
             // 判断是否超过最大连接数限制  
             if(contActive < this.dbBean.getMaxActiveConnections()){  
-                if (freeConnection.size() > 0) {  
+                if (freeConnection.size() > 0) {
                     conn = freeConnection.get(0);  
                     if (conn != null) {  
                         threadLocal.set(conn);  

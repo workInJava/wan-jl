@@ -6,8 +6,8 @@ buildscript {
     repositories {
         mavenLocal()
         maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
-        maven { url "http://repo.spring.io/snapshot" }
-        maven { url "http://repo.spring.io/milestone" }
+//        maven { url "http://repo.spring.io/snapshot" }
+//        maven { url "http://repo.spring.io/milestone" }
         jcenter()
     }
 
@@ -22,6 +22,7 @@ subprojects {
     apply plugin: 'idea'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
+    apply plugin: "jacoco"
 
     group = 'com.wan.jl'
     version = '1.0-SNAPSHOT'
@@ -43,9 +44,9 @@ subprojects {
 
     repositories {
         mavenLocal()
-        mavenCentral()
+       // mavenCentral()
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
-
+        jcenter()
 //        jar {
 //            manifest.attributes provider: 'gradle'
 //        }
@@ -60,6 +61,36 @@ subprojects {
     gradle.projectsEvaluated {
         tasks.withType(JavaCompile) {
             options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+
+    jacoco {
+        toolVersion = "0.8.4"
+        reportsDir = file("$buildDir/")
+    }
+    jacocoTestReport {
+        reports {
+            html.enabled true
+            csv.enabled false
+            xml.enabled false
+            xml.destination file("$buildDir/jacocoXml.xml")
+            html.destination file("$buildDir/jacocoHtml")
+        }
+        afterEvaluate {
+            getClassDirectories().setFrom(
+                    classDirectories.files.collect {
+                        fileTree(dir: 'com/wan/jl',
+                                exclude: [''])
+                    }
+            )
+        }
+    }
+    test {
+        include '**/*Test.class'
+        exclude '**/**_Run.class'
+        jacoco {
+            destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
+            classDumpDir = file("$buildDir/jacoco/classpathdumps")
         }
     }
 }

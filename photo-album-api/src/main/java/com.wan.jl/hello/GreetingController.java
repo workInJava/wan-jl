@@ -3,7 +3,10 @@ package com.wan.jl.hello;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class GreetingController {
@@ -12,9 +15,9 @@ public class GreetingController {
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/greeting")
-    public Greeting greeting(@RequestBody Map<String,String> param) {
+    public Greeting greeting(HttpServletRequest request) {
         return new Greeting(counter.incrementAndGet(),
-                            String.format(template, param));
+                            String.format(template, request.getRemoteHost()));
     }
 
     @PutMapping("/greeting/{w}")
