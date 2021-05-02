@@ -1,6 +1,8 @@
 package com.wan.jl.exercise;
 
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 //User对象比较器
 public class ComparatorUser implements Comparator {
@@ -12,6 +14,13 @@ public class ComparatorUser implements Comparator {
 
         int result = u1.getAge()-u2.getAge();
         return result;
+
+    }
+
+
+    public static void main(String[] args){
+        Map map = new HashMap();
+
     }
 
 }

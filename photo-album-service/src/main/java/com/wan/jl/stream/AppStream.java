@@ -14,6 +14,8 @@ public class AppStream implements Serializable{
     }
 
     public static void main(String[] agrs) throws Exception {
+
+        File[] files = new File("").listFiles(File::isHidden);
         fileStream();
         //objectStream();
         //byteArraysStream();

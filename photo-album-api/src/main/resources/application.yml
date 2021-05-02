@@ -2,12 +2,25 @@
 server:
   port: 8081
   #配置访问路径，默认为/
-spring:
-  application:
-    name: wan-jl
+
 
 #eureka:
 #  client:
 #    serviceUrl:
 #      defaultZone: http://localhost:8080/eureka/ #eureka服务注册地址
 
+spring:
+  application:
+    name: wan-jl
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://92.168.2.58:3306/python?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: test
+    password: whmline0
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  ##检查 mybatis 配置是否存在，一般命名为 mybatis-config.xml
+  check-config-location: true
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*Mapper.xml
