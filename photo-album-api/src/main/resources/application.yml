@@ -14,7 +14,7 @@ spring:
     name: wan-jl
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://92.168.2.58:3306/python?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://192.168.2.209:3306/python?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
     username: test
     password: whmline0
     type: com.alibaba.druid.pool.DruidDataSource

@@ -19,7 +19,7 @@ public class TestWebLogTest extends BaseTest {
 
     @Test
     public void test01()throws Exception{
-       List<Map<String,Object>> k = stockHistoryDao.selectByDay(DateUtil.StringToDate("2020-07-31","yyyy-MM-dd"),DateUtil.StringToDate("2020-03-13","yyyy-MM-dd"));
+       List<Map<String,Object>> k = stockHistoryDao.selectByDay(DateUtil.StringToDate("2020-07-13","yyyy-MM-dd"),DateUtil.StringToDate("2020-07-14","yyyy-MM-dd"));
         System.out.println(JSONObject.toJSONString(k));
     }
 }

@@ -9,6 +9,8 @@ dependencyManagement {
     }
 }
 
+jar.enabled = true
+bootJar.enabled = true
 
 dependencies {
     compile project(':photo-album-service')

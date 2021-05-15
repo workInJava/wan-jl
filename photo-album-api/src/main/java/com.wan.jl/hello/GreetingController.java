@@ -3,6 +3,9 @@ package com.wan.jl.hello;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
+import com.wan.jl.base.StockHistoryDao;
+import com.wan.jl.util.DateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,8 +16,10 @@ public class GreetingController {
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
+    @Autowired
+    public StockHistoryDao stockHistoryDao;
 
-    @GetMapping("/greeting")
+        @GetMapping("/greeting")
     public Greeting greeting(HttpServletRequest request) {
         return new Greeting(counter.incrementAndGet(),
                             String.format(template, request.getRemoteHost()));
@@ -26,10 +31,12 @@ public class GreetingController {
                 String.format(template, param));
     }
 
-    @PostMapping("/greeting/{a}")
+    @PostMapping("/greeting/post")
     public Greeting greetingPost(@PathVariable(name="a") String a, @RequestBody Map<String,String> param) {
+
+        stockHistoryDao.selectByDay(DateUtil.StringToDate("2020-07-01","yyyy-MM-dd"),DateUtil.StringToDate("2020-07-31","yyyy-MM-dd"));
         return new Greeting(counter.incrementAndGet(),
-                String.format(template, param));
+            String.format(template, param));
     }
 
 
